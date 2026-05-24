@@ -1,74 +1,720 @@
-شركة تسليك مجاري في الشارقة - BELL SYSTEM | تسليك المجاري بالضغط العالي 🚰✨
+<!-- TITLE: تسليك مجاري في الشارقة | فتح انسداد المجاري والمطابخ والحمامات | BELL SYSTEM META DESCRIPTION: خدمة تسليك مجاري في الشارقة من BELL SYSTEM لفتح انسداد الحمامات والمطابخ والبالوعات ومعالجة بطء التصريف، مع عروض وخصومات، اتصال وواتساب مباشر، وتتبع تحويلات Google Ads. FOCUS KEYWORD: تسليك مجاري في الشارقة SLUG: تسليك-المجاري-بالضغط TAGS: تسليك مجاري في الشارقة, شركة تسليك مجاري في الشارقة, تسليك المجاري بالضغط, فتح انسداد المجاري, تسليك مجاري الحمامات, تسليك مجاري المطابخ, تنظيف بالوعات الشارقة, شفط مجاري الشارقة, صيانة مجاري الصرف الصحي, طوارئ صرف صحي الشارقة, BELL SYSTEM -->
 
-انسداد المجاري يمكن أن يكون مزعجًا للغاية، ولكن مع تقنية تسليك المجاري بالضغط العالي التي تقدمها شركة BELL SYSTEM، يمكنك حل المشكلة بسرعة وأمان. نحن نستخدم أحدث المعدات لإزالة الانسدادات بكفاءة وضمان عودة نظام الصرف الصحي إلى حالته الطبيعية.
+<section dir="rtl" lang="ar-AE" style="width: 100vw; max-width: 100vw; margin-right: calc(50% - 50vw); margin-left: calc(50% - 50vw); font-family: Tahoma,Arial,sans-serif; background: #f4f8fb; color: #0f172a; line-height: 1.95; overflow: hidden; padding-bottom: 96px;"><!-- TRACKING CONFIG -->
+<script>
+    window.BS_TRACKING_CONFIG = {
+      googleAdsId: "AW-XXXXXXXXXX",
+      phoneConversionLabel: "PHONE_CONVERSION_LABEL",
+      whatsappConversionLabel: "WHATSAPP_CONVERSION_LABEL",
+      cooldownSeconds: 45,
+      businessPhone: "+971528913062",
+      whatsappPhone: "971528913062"
+    };
 
-ما هو تسليك المجاري بالضغط العالي؟
+    (function(){
+      var params = new URLSearchParams(window.location.search);
+      var saved = {
+        source: params.get("utm_source") || (params.get("gclid") ? "google_ads" : "direct"),
+        medium: params.get("utm_medium") || "",
+        campaign: params.get("utm_campaign") || "",
+        keyword: params.get("utm_term") || "",
+        content: params.get("utm_content") || "",
+        gclid: params.get("gclid") || "",
+        landing_page: window.location.href,
+        first_seen: new Date().toISOString()
+      };
 
-تسليك المجاري بالضغط العالي هو تقنية متقدمة تستخدم مضخات قوية لتوجيه تيار ماء عالي الضغط داخل الأنابيب. هذا الضغط يزيل:
+      try {
+        if (!localStorage.getItem("bs_first_referral")) {
+          localStorage.setItem("bs_first_referral", JSON.stringify(saved));
+        }
+        localStorage.setItem("bs_last_referral", JSON.stringify(saved));
+      } catch(e) {}
+    })();
 
-الدهون والشحوم المتراكمة.
+    function bsGetReferralData(){
+      try {
+        return JSON.parse(localStorage.getItem("bs_last_referral") || localStorage.getItem("bs_first_referral") || "{}");
+      } catch(e) {
+        return {};
+      }
+    }
 
-الأوساخ والشوائب العالقة.
+    function bsCanTrack(actionType){
+      var key = "bs_last_" + actionType + "_click_time";
+      var now = Date.now();
+      var cooldown = (window.BS_TRACKING_CONFIG.cooldownSeconds || 45) * 1000;
 
-الرواسب المعدنية والجذور المتسللة.
+      try {
+        var last = parseInt(localStorage.getItem(key) || "0", 10);
+        if (now - last < cooldown) {
+          return false;
+        }
+        localStorage.setItem(key, String(now));
+        return true;
+      } catch(e) {
+        return true;
+      }
+    }
 
-فوائد تقنية الضغط العالي:
+    function bsTrackGoogleAds(actionType){
+      var cfg = window.BS_TRACKING_CONFIG || {};
+      var sendTo = "";
 
-تنظيف كامل دون الحاجة إلى استخدام مواد كيميائية ضارة.
+      if (actionType === "phone") {
+        sendTo = cfg.googleAdsId + "/" + cfg.phoneConversionLabel;
+      }
 
-استعادة تدفق المياه بسرعة.
+      if (actionType === "whatsapp" || actionType === "lead_form") {
+        sendTo = cfg.googleAdsId + "/" + cfg.whatsappConversionLabel;
+      }
 
-منع حدوث انسدادات مستقبلية.
+      if (
+        typeof gtag === "function" &&
+        cfg.googleAdsId &&
+        sendTo.indexOf("XXXXXXXXXX") === -1 &&
+        sendTo.indexOf("CONVERSION_LABEL") === -1
+      ) {
+        gtag("event", "conversion", {"send_to": sendTo});
+      }
+    }
 
-كيف نقدم الخدمة؟
+    function bsLogLead(actionType){
+      var referral = bsGetReferralData();
+      var payload = {
+        action: actionType,
+        page: window.location.href,
+        title: document.title,
+        time: new Date().toISOString(),
+        source: referral.source || "",
+        medium: referral.medium || "",
+        campaign: referral.campaign || "",
+        keyword: referral.keyword || "",
+        content: referral.content || "",
+        gclid: referral.gclid || ""
+      };
 
-1. الفحص المبدئي:
+      try {
+        var history = JSON.parse(localStorage.getItem("bs_lead_history") || "[]");
+        history.push(payload);
+        localStorage.setItem("bs_lead_history", JSON.stringify(history.slice(-30)));
+      } catch(e) {}
 
-نستخدم كاميرات فحص متطورة لتحديد موقع الانسداد ونوعه.
+      return payload;
+    }
 
-2. تسليك بالضغط العالي:
+    function bsTrackLeadClick(event, actionType, element){
+      var allowed = bsCanTrack(actionType);
+      var href = element.getAttribute("href");
 
-توجيه تيار ماء عالي الضغط بدقة داخل الأنابيب لتفكيك وإزالة التراكمات.
+      if (!allowed) {
+        event.preventDefault();
+        alert("تم تسجيل طلبك بالفعل. يرجى الانتظار قليلًا قبل إعادة المحاولة.");
+        return false;
+      }
 
-3. تنظيف شامل:
+      bsLogLead(actionType);
+      bsTrackGoogleAds(actionType);
 
-التأكد من أن الأنابيب نظيفة وخالية تمامًا من أي عوائق.
+      if (actionType === "phone") {
+        event.preventDefault();
+        setTimeout(function(){
+          window.location.href = href;
+        }, 250);
+        return false;
+      }
 
-4. الفحص النهائي:
+      return true;
+    }
 
-اختبار تدفق المياه للتأكد من كفاءة النظام بعد التنظيف.
+    function bsBuildTrackedWhatsapp(){
+      var referral = bsGetReferralData();
+      var area = document.getElementById("bs-lead-area") ? document.getElementById("bs-lead-area").value : "";
+      var problem = document.getElementById("bs-lead-problem") ? document.getElementById("bs-lead-problem").value : "";
+      var property = document.getElementById("bs-lead-property") ? document.getElementById("bs-lead-property").value : "";
 
-متى تحتاج إلى تسليك المجاري بالضغط العالي؟
+      var msg =
+        "السلام عليكم، أريد خدمة تسليك مجاري في الشارقة من BELL SYSTEM.%0A" +
+        "أريد الاستفادة من عرض تسليك المجاري 20%.%0A" +
+        "المنطقة: " + encodeURIComponent(area || "غير محددة") + "%0A" +
+        "نوع العقار: " + encodeURIComponent(property || "غير محدد") + "%0A" +
+        "نوع المشكلة: " + encodeURIComponent(problem || "غير محددة") + "%0A" +
+        "مصدر الزيارة: " + encodeURIComponent(referral.source || "direct") + "%0A" +
+        "الحملة: " + encodeURIComponent(referral.campaign || "") + "%0A" +
+        "الكلمة: " + encodeURIComponent(referral.keyword || "") + "%0A" +
+        "رابط الصفحة: " + encodeURIComponent(window.location.href);
 
-عند ملاحظة بطء في تصريف المياه.
+      return "https://wa.me/" + window.BS_TRACKING_CONFIG.whatsappPhone + "?text=" + msg;
+    }
 
-إذا كانت هناك روائح كريهة تنبعث من الأنابيب.
+    function bsSubmitLeadForm(event){
+      event.preventDefault();
 
-عند تكرار الانسدادات في نفس المنطقة.
+      if (!bsCanTrack("lead_form")) {
+        alert("تم تسجيل الطلب بالفعل. يرجى الانتظار قليلًا قبل إرسال طلب آخر.");
+        return false;
+      }
 
-في حالة تجمع المياه في الأحواض أو المراحيض.
+      bsLogLead("lead_form");
+      bsTrackGoogleAds("lead_form");
 
-لماذا تختار BELL SYSTEM؟
+      window.open(bsBuildTrackedWhatsapp(), "_blank", "noopener");
+      return false;
+    }
+  </script>
 
-معدات متطورة: نستخدم أحدث تقنيات الضغط العالي لضمان نتائج مثالية.
+<!-- TOP BAR -->
+<div style="background: linear-gradient(90deg,#020617,#0f766e,#020617); color: #fff; text-align: center; padding: 12px 14px; font-size: 14px; font-weight: 900;">⭐ BELL SYSTEM في الشارقة • تسليك مجاري بالضغط • فتح انسداد الحمامات والمطابخ • عروض وخصومات •
+<a style="color: #fde68a; text-decoration: none; font-weight: 900;" href="tel:+971528913062">📞 052 891 3062</a>
+|
+<a style="color: #fde68a; text-decoration: none; font-weight: 900;" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20خدمة%20تسليك%20مجاري%20في%20الشارقة" target="_blank" rel="noopener">💬 واتساب مباشر</a></div>
+<!-- HEADER -->
 
-فريق محترف: خبرة في التعامل مع جميع أنواع انسدادات المجاري.
+<header style="position: sticky; top: 0; z-index: 9999; background: rgba(255,255,255,.96); border-bottom: 1px solid #e2e8f0; box-shadow: 0 12px 34px rgba(15,23,42,.08);">
+<div style="width: min(1240px,94%); margin: auto; min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding: 10px 0;">
 
-خدمة سريعة: استجابة فورية لحالات الطوارئ على مدار الساعة.
+&nbsp;
+<div style="width: 54px; height: 54px; border-radius: 20px; background: linear-gradient(135deg,#020617,#0f766e); color: #fff; display: grid; place-items: center; font-size: 21px; font-weight: 900; box-shadow: 0 14px 30px rgba(15,23,42,.18);">BS</div>
+<div><strong style="display: block; font-size: 21px; font-weight: 900; color: #020617; line-height: 1.25;">BELL SYSTEM</strong>
+<span style="display: block; color: #64748b; font-size: 13px; font-weight: 800;">تسليك مجاري • صرف صحي • الشارقة</span></div>
+&nbsp;
 
-أسعار تنافسية: خدمات بجودة عالية وأسعار تناسب الجميع.
+<nav style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"><a style="color: #0f2740; text-decoration: none; font-size: 14px; font-weight: 900; padding: 9px 12px; border-radius: 999px; background: #ecfeff;" href="#when">متى تحتاجها؟</a>
+<a style="color: #0f2740; text-decoration: none; font-size: 14px; font-weight: 900; padding: 9px 12px; border-radius: 999px; background: #ecfeff;" href="#offers">العروض</a>
+<a style="color: #0f2740; text-decoration: none; font-size: 14px; font-weight: 900; padding: 9px 12px; border-radius: 999px; background: #ecfeff;" href="#google-ads-quality">Google Ads</a>
+<a style="color: #0f2740; text-decoration: none; font-size: 14px; font-weight: 900; padding: 9px 12px; border-radius: 999px; background: #ecfeff;" href="#places">أماكن الخدمة</a>
+<a style="color: #0f2740; text-decoration: none; font-size: 14px; font-weight: 900; padding: 9px 12px; border-radius: 999px; background: #ecfeff;" href="#areas">المناطق</a>
+<a style="color: #0f2740; text-decoration: none; font-size: 14px; font-weight: 900; padding: 9px 12px; border-radius: 999px; background: #ecfeff;" href="#articles">المقالات</a>
+<a style="color: #0f2740; text-decoration: none; font-size: 14px; font-weight: 900; padding: 9px 12px; border-radius: 999px; background: #ecfeff;" href="#contact">تواصل</a></nav>
+<div style="display: flex; gap: 8px; flex-wrap: wrap;"><a style="background: #b91c1c; color: #fff; text-decoration: none; padding: 11px 16px; border-radius: 999px; font-weight: 900;" href="tel:+971528913062">📞 اتصال</a>
+<a style="background: #16a34a; color: #fff; text-decoration: none; padding: 11px 16px; border-radius: 999px; font-weight: 900;" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20خدمة%20تسليك%20مجاري%20في%20الشارقة" target="_blank" rel="noopener">💬 واتساب</a></div>
+</div>
+</header><!-- HERO -->
 
-📍 موقعنا:
-شارع الوحدة، الشارقة
-اضغط هنا للوصول عبر Google Maps
+<section style="position: relative; color: #fff; padding: 86px 0; background: radial-gradient(circle at 14% 18%,rgba(20,184,166,.30),transparent 35%),radial-gradient(circle at 88% 10%,rgba(250,204,21,.22),transparent 31%),linear-gradient(135deg,#020617 0%,#0f2740 48%,#0f766e 100%);">
+<div style="width: min(1240px,94%); margin: auto; display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 34px; align-items: center;">
+<div>
+<div style="display: inline-flex; padding: 9px 16px; border-radius: 999px; background: rgba(250,204,21,.15); border: 1px solid rgba(250,204,21,.34); color: #fde68a; font-weight: 900; margin-bottom: 16px;">الصفحة الرسمية لخدمة التسليك • BELL SYSTEM</div>
+<h1 style="margin: 0 0 18px; color: #fff; font-size: clamp(36px,6vw,72px); line-height: 1.12; font-weight: 900;">تسليك مجاري في الشارقة
+<span style="display: block; color: #5eead4;">فتح انسداد الحمامات والمطابخ والبالوعات</span></h1>
+<p style="margin: 0 0 24px; color: #e2e8f0; font-size: 18px; font-weight: 800;">صفحة متخصصة لخدمة تسليك المجاري في الشارقة من BELL SYSTEM للحالات التي تشمل بطء التصريف، انسداد الحمامات، انسداد المطابخ، انسداد البالوعات، والانسداد الموضعي داخل خط الصرف.</p>
 
-📧 البريد الإلكتروني: info@bellsystem35.blog
-📞 الهاتف: +971-50-0000000
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 12px; margin: 24px 0;">
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 14px 15px; font-weight: 900;">🚿 بطء تصريف</div>
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 14px 15px; font-weight: 900;">🚻 انسداد حمام</div>
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 14px 15px; font-weight: 900;">🍽️ انسداد مطبخ</div>
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 14px 15px; font-weight: 900;">🕳️ انسداد بالوعة</div>
+</div>
+<div style="display: flex; gap: 11px; flex-wrap: wrap;"><a style="display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#b91c1c,#ef4444); color: #fff; text-decoration: none; padding: 15px 22px; border-radius: 999px; font-weight: 900; box-shadow: 0 15px 34px rgba(0,0,0,.22);" href="tel:+971528913062">📞 اتصال مباشر</a><a style="display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#16a34a,#25d366); color: #fff; text-decoration: none; padding: 15px 22px; border-radius: 999px; font-weight: 900; box-shadow: 0 15px 34px rgba(0,0,0,.22);" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20خدمة%20تسليك%20مجاري%20في%20الشارقة.%0Aالمنطقة:%0Aنوع%20العقار:%0Aالمشكلة:%20بطء%20تصريف%20/%20انسداد%20حمام%20/%20انسداد%20مطبخ%20/%20بالوعة" target="_blank" rel="noopener">💬 واتساب مباشر</a>
 
-عرض خاص!
+<a style="display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#facc15,#d6a85f); color: #111827; text-decoration: none; padding: 15px 22px; border-radius: 999px; font-weight: 900; box-shadow: 0 15px 34px rgba(0,0,0,.22);" href="#offers">🔥 عرض 20%</a>
 
-احصل على خصم 10% على خدمة تسليك المجاري بالضغط العالي باستخدام الكود:
+</div>
+</div>
+<div style="background: rgba(255,255,255,.11); border: 1px solid rgba(255,255,255,.18); border-radius: 38px; padding: 22px; box-shadow: 0 35px 95px rgba(0,0,0,.32);">
+<div style="border-radius: 30px; overflow: hidden; background: #020617; min-height: 360px; box-shadow: 0 20px 60px rgba(0,0,0,.25); position: relative;"><img style="width: 100%; height: 100%; min-height: 360px; object-fit: cover; display: block;" src="ضع-رابط-صورة-تسليك-مجاري-من-مكتبة-ووردبريس.webp" alt="تسليك مجاري في الشارقة من BELL SYSTEM فتح انسداد الحمامات والمطابخ والبالوعات" width="1200" height="675" />
+<div style="position: absolute; inset: auto 18px 18px 18px; background: rgba(2,6,23,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 22px; padding: 18px; color: #fff;"><strong style="display: block; font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 6px;">BELL SYSTEM</strong>
+<span style="display: block; color: #dbeafe; font-weight: 900;">تسليك مجاري في الشارقة • اتصال وواتساب مباشر</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 14px;">
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 12px; text-align: center; color: #fff; font-weight: 900; font-size: 13px;">Local SEO</div>
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 12px; text-align: center; color: #fff; font-weight: 900; font-size: 13px;">تحويل مباشر</div>
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 12px; text-align: center; color: #fff; font-weight: 900; font-size: 13px;">عرض 20%</div>
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 12px; text-align: center; color: #fff; font-weight: 900; font-size: 13px;">Google Ads</div>
+</div>
+</div>
+</div>
+</section><!-- WHEN / NOT WHEN -->
 
-نسخ الكودZPJ555
+<section id="when" style="padding: 72px 0; background: #ffffff;">
+<div style="width: min(1240px,94%); margin: auto; display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 20px;">
+<div style="background: #fff; border: 1px solid #dbeafe; border-radius: 30px; padding: 28px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; margin-bottom: 12px;">متى تدخل هذه الصفحة؟</div>
+<h2 style="margin: 0 0 14px; color: #020617; font-size: clamp(26px,3.2vw,40px); font-weight: 900; line-height: 1.25;">عندما تكون المشكلة انسدادًا موضعيًا أو بطء تصريف</h2>
+<p style="margin: 0 0 16px; color: #475569; font-weight: 800;">هذه الصفحة هي المسار الأقرب عندما تكون المشكلة في حمام، مطبخ، بالوعة، مصرف أرضي، أو خط صرف داخلي ولا يوجد طفح واسع أو امتلاء بيارة واضح.</p>
 
-🚀 BELL SYSTEM – الحل الأمثل لتسليك المجاري باستخدام تقنيات الضغط العالي في الشارقة!
+</div>
+<div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 30px; padding: 28px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid #fed7aa; color: #9a3412; font-weight: 900; margin-bottom: 12px;">متى لا تكون هذه الصفحة الأقرب؟</div>
+<h2 style="margin: 0 0 14px; color: #7c2d12; font-size: clamp(26px,3.2vw,40px); font-weight: 900; line-height: 1.25;">عند الطفح أو امتلاء البيارات أو رجوع المياه</h2>
+<p style="margin: 0 0 16px; color: #7c2d12; font-weight: 800;">إذا كانت المشكلة طفح مجاري، تجمع صرف، امتلاء بيارة أو رجوع مياه من أكثر من نقطة، فصفحة شفط المجاري أو الطوارئ تكون أقرب.</p>
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap;"><a style="background: #0f766e; color: #fff; border-radius: 999px; padding: 13px 17px; text-decoration: none; font-weight: 900;" href="https://bellsystem35.com/%d8%b4%d9%81%d8%b7-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a/">🚚 صفحة شفط المجاري</a>
+<a style="background: #b91c1c; color: #fff; border-radius: 999px; padding: 13px 17px; text-decoration: none; font-weight: 900;" href="https://bellsystem35.com/%d8%b7%d9%88%d8%a7%d8%b1%d8%a6-%d8%a7%d9%84%d8%b5%d8%b1%d9%81-%d8%a7%d9%84%d8%b5%d8%ad%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-24-%d8%b3%d8%a7%d8%b9%d8%a9/">🚨 صفحة الطوارئ</a></div>
+</div>
+</div>
+</section><!-- OFFERS -->
+
+<section id="offers" style="padding: 78px 0; background: linear-gradient(180deg,#fff,#f8fbff);">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="max-width: 920px; margin: 0 auto 34px; text-align: center;">
+<div style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; font-weight: 900; margin-bottom: 14px;">🔥 عروض وتخفيضات لفترة محدودة</div>
+<h2 style="margin: 0 0 12px; color: #020617; font-size: clamp(30px,4vw,52px); line-height: 1.25; font-weight: 900;">عروض تسليك مجاري في الشارقة من BELL SYSTEM</h2>
+<p style="margin: 0; color: #64748b; font-size: 16px; font-weight: 800; line-height: 1.9;">استفد من خصومات خدمات الصرف الصحي في الشارقة عند طلب خدمة تسليك المجاري أو الخدمات المرتبطة مثل شفط المجاري وتنظيف البالوعات.</p>
+
+</div>
+<div style="background: radial-gradient(circle at 90% 10%,rgba(250,204,21,.18),transparent 32%),radial-gradient(circle at 10% 15%,rgba(20,184,166,.20),transparent 34%),linear-gradient(135deg,#020617,#0f2740,#0f766e); border-radius: 36px; padding: 32px; box-shadow: 0 30px 90px rgba(15,23,42,.22); color: #fff; margin-bottom: 22px;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 24px; align-items: center;">
+<div>
+<div style="display: inline-flex; padding: 8px 14px; border-radius: 999px; background: rgba(250,204,21,.16); border: 1px solid rgba(250,204,21,.35); color: #fde68a; font-weight: 900; margin-bottom: 12px;">العرض الرئيسي</div>
+<h3 style="margin: 0 0 10px; color: #fff; font-size: clamp(28px,4vw,46px); line-height: 1.2; font-weight: 900;">خصم 20% على خدمة تسليك المجاري</h3>
+<p style="margin: 0; color: #e2e8f0; font-weight: 800; line-height: 1.9;">عرض مناسب لحالات بطء التصريف، انسداد الحمامات، انسداد المطابخ، وانسداد البالوعات داخل الشارقة.
+اطلب الخدمة الآن واذكر: <strong style="color: #fde68a;">عرض تسليك المجاري 20%</strong>.</p>
+
+</div>
+<div style="background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 30px; padding: 24px; text-align: center;">
+<div style="font-size: 72px; font-weight: 900; line-height: 1; color: #fde68a;">20%</div>
+<div style="font-size: 20px; font-weight: 900; margin-top: 8px; color: #fff;">خصم مباشر</div>
+<p style="margin: 12px 0 0; color: #dbeafe; font-weight: 800;">على خدمة تسليك المجاري حسب الحالة والمنطقة والتوفر.</p>
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 18px;"><a style="display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#b91c1c,#ef4444); color: #fff; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 900; box-shadow: 0 14px 32px rgba(0,0,0,.22);" href="tel:+971528913062">📞 اطلب العرض</a><a style="display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#16a34a,#25d366); color: #fff; text-decoration: none; padding: 14px 20px; border-radius: 999px; font-weight: 900; box-shadow: 0 14px 32px rgba(0,0,0,.22);" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20الحصول%20على%20عرض%20تسليك%20المجاري%2020%25%20في%20الشارقة.%0Aالمنطقة:%0Aنوع%20العقار:%0Aالمشكلة:%20بطء%20تصريف%20/%20انسداد%20حمام%20/%20انسداد%20مطبخ%20/%20بالوعة" target="_blank" rel="noopener">💬 واتساب الخصم</a>
+
+</div>
+</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px;"><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🚿 عرض تسليك المجاري</h3>
+<p style="margin: 0 0 14px; color: #475569; font-weight: 800;">خصم على فتح انسداد المجاري والمطابخ والحمامات وخطوط الصرف.</p>
+
+<div style="display: inline-flex; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; border-radius: 999px; padding: 8px 14px; font-weight: 900;">خصم 20%</div>
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🚚 عرض شفط المجاري</h3>
+<p style="margin: 0 0 14px; color: #475569; font-weight: 800;">مناسب عند وجود طفح، رجوع مياه، امتلاء بيارات، أو تجمعات صرف.</p>
+
+<div style="display: inline-flex; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; border-radius: 999px; padding: 8px 14px; font-weight: 900;">خصم 25%</div>
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🕳️ عرض تنظيف البالوعات</h3>
+<p style="margin: 0 0 14px; color: #475569; font-weight: 800;">مناسب لتنظيف المصارف والبالوعات وبطء التصريف القريب من فتحة البالوعة.</p>
+
+<div style="display: inline-flex; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; border-radius: 999px; padding: 8px 14px; font-weight: 900;">خصم 15%</div>
+</article></div>
+<div style="margin-top: 22px; background: #fff7ed; border: 1px solid #fed7aa; border-right: 6px solid #f59e0b; color: #7c2d12; border-radius: 22px; padding: 18px; display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 14px; align-items: center;">
+<div style="font-weight: 900; line-height: 1.9;">⚠️ العروض قد تختلف حسب نوع الخدمة، المنطقة، حجم المشكلة، ووقت الطلب. للحصول على الخصم، يرجى ذكر اسم العرض أو نسبة الخصم عند التواصل.</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start;"><a style="background: #020617; color: #fff; text-decoration: none; border-radius: 999px; padding: 13px 18px; font-weight: 900;" href="https://bellsystem35.com/%d8%a7%d9%84%d8%b9%d8%b1%d9%88%d8%b6-%d9%88%d8%a7%d9%84%d8%aa%d8%ae%d9%81%d9%8a%d8%b6%d8%a7%d8%aa/">🔥 فتح صفحة العروض</a><a style="background: #16a34a; color: #fff; text-decoration: none; border-radius: 999px; padding: 13px 18px; font-weight: 900;" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20معرفة%20أفضل%20عرض%20متاح%20لخدمة%20تسليك%20مجاري%20في%20الشارقة.%0Aالمنطقة:%0Aنوع%20المشكلة:" target="_blank" rel="noopener">💬 اسأل عن أفضل عرض</a>
+
+</div>
+</div>
+</div>
+</section><!-- GOOGLE ADS QUALITY -->
+
+<section id="google-ads-quality" style="padding: 78px 0; background: #ffffff;">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="max-width: 940px; margin: 0 auto 34px; text-align: center;">
+<div style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; margin-bottom: 14px;">📢 صفحة مهيأة لحملات Google Ads</div>
+<h2 style="margin: 0 0 12px; color: #020617; font-size: clamp(30px,4vw,52px); line-height: 1.25; font-weight: 900;">إعلان واضح، خدمة محددة، وتحويل قابل للتتبع</h2>
+<p style="margin: 0; color: #64748b; font-size: 16px; font-weight: 800; line-height: 1.9;">الصفحة مهيأة لاستقبال زيارات الإعلانات، مع أزرار اتصال وواتساب متتبعة، تقليل تكرار التحويلات، ونموذج طلب يمرر مصدر الزيارة داخل رسالة واتساب.</p>
+
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px;"><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🎯 مطابقة نية البحث</h3>
+<p style="margin: 0; color: #475569; font-weight: 800;">الصفحة تستهدف الباحث عن تسليك مجاري في الشارقة، فتح انسداد الحمامات، المطابخ، والبالوعات.</p>
+
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">📞 تتبع الاتصال</h3>
+<p style="margin: 0; color: #475569; font-weight: 800;">أزرار الاتصال مزودة بتقليل تكرار التحويلات السريعة، مع نموذج جاهز لربط Conversion Label من Google Ads.</p>
+
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🛡️ تحسين جودة تتبع التحويلات</h3>
+<p style="margin: 0; color: #475569; font-weight: 800;">يتم تقليل تكرار احتساب نفس الإجراء خلال فترة قصيرة لتحسين دقة قياس الاتصال والواتساب.</p>
+
+</article></div>
+</div>
+</section><!-- TRACKED LEAD FORM -->
+
+<section id="tracked-lead-form" style="padding: 78px 0; background: linear-gradient(180deg,#f8fbff,#ffffff);">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 22px; align-items: stretch;">
+<div style="background: radial-gradient(circle at 90% 0%,rgba(20,184,166,.18),transparent 32%),linear-gradient(135deg,#020617,#0f2740); color: #fff; border-radius: 34px; padding: 32px; box-shadow: 0 28px 82px rgba(15,23,42,.20);">
+<div style="display: inline-flex; padding: 8px 14px; border-radius: 999px; background: rgba(250,204,21,.15); border: 1px solid rgba(250,204,21,.34); color: #fde68a; font-weight: 900; margin-bottom: 14px;">نموذج تتبع الإحالة والتحويل</div>
+<h2 style="margin: 0 0 12px; color: #fff; font-size: clamp(30px,4vw,44px); font-weight: 900; line-height: 1.25;">أرسل طلب تسليك المجاري مع بيانات الإحالة</h2>
+<p style="margin: 0; color: #e2e8f0; font-weight: 800;">هذا النموذج يجهّز رسالة واتساب تحتوي على نوع المشكلة والمنطقة ومصدر الزيارة، مما يساعدك على معرفة العملاء القادمين من Google Ads أو البحث أو الزيارات المباشرة.</p>
+
+</div>
+<form style="background: #fff; border: 1px solid #dbeafe; border-radius: 34px; padding: 28px; box-shadow: 0 18px 48px rgba(15,23,42,.10);">
+<h3 style="margin: 0 0 14px; color: #020617; font-size: 28px; font-weight: 900;">طلب خدمة مع عرض الخصم</h3>
+<p style="margin: 0 0 18px; color: #64748b; font-weight: 800;">اختر البيانات الأساسية ثم اضغط إرسال عبر واتساب.</p>
+<label style="display: block; margin-bottom: 12px;">
+<span style="display: block; color: #0f2740; font-weight: 900; margin-bottom: 6px;">المنطقة داخل الشارقة</span>
+<input id="bs-lead-area" style="width: 100%; padding: 14px; border: 1px solid #dbeafe; border-radius: 16px; font-family: Tahoma,Arial; font-size: 15px; font-weight: 800; color: #0f172a;" type="text" placeholder="مثال: المجاز، النهدة، التعاون، مويلح" />
+</label>
+
+<label style="display: block; margin-bottom: 12px;">
+<span style="display: block; color: #0f2740; font-weight: 900; margin-bottom: 6px;">نوع العقار</span>
+<select id="bs-lead-property" style="width: 100%; padding: 14px; border: 1px solid #dbeafe; border-radius: 16px; font-family: Tahoma,Arial; font-size: 15px; font-weight: 800; color: #0f172a; background: #fff;">
+<option value="">اختر نوع العقار</option>
+<option value="منزل">منزل</option>
+<option value="فيلا">فيلا</option>
+<option value="شقة">شقة</option>
+<option value="مطعم">مطعم</option>
+<option value="محل">محل</option>
+<option value="مبنى">مبنى</option>
+</select>
+</label>
+
+<label style="display: block; margin-bottom: 18px;">
+<span style="display: block; color: #0f2740; font-weight: 900; margin-bottom: 6px;">نوع المشكلة</span>
+<select id="bs-lead-problem" style="width: 100%; padding: 14px; border: 1px solid #dbeafe; border-radius: 16px; font-family: Tahoma,Arial; font-size: 15px; font-weight: 800; color: #0f172a; background: #fff;">
+<option value="">اختر نوع المشكلة</option>
+<option value="بطء تصريف">بطء تصريف</option>
+<option value="انسداد حمام">انسداد حمام</option>
+<option value="انسداد مطبخ">انسداد مطبخ</option>
+<option value="انسداد بالوعة">انسداد بالوعة</option>
+<option value="رائحة مجاري">رائحة مجاري</option>
+<option value="طفح أو رجوع مياه">طفح أو رجوع مياه</option>
+</select>
+</label>
+
+<button style="width: 100%; border: 0; background: linear-gradient(135deg,#16a34a,#25d366); color: #fff; padding: 16px 20px; border-radius: 999px; font-family: Tahoma,Arial; font-size: 16px; font-weight: 900; cursor: pointer; box-shadow: 0 14px 34px rgba(22,163,74,.25);" type="submit">
+💬 إرسال الطلب عبر واتساب مع بيانات التتبع
+</button>
+<div style="margin-top: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 18px; padding: 13px; color: #64748b; font-size: 13px; font-weight: 800;">يتم تقليل تكرار الإرسال السريع لتحسين جودة قياس التحويلات.</div>
+</form></div>
+</div>
+</section><!-- PLACES -->
+
+<section id="places" style="padding: 75px 0; background: #ffffff;">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="max-width: 920px; margin: 0 auto 30px; text-align: center;">
+<div style="display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; margin-bottom: 12px;">أماكن الخدمة</div>
+<h2 style="margin: 0 0 12px; color: #020617; font-size: clamp(30px,4vw,50px); line-height: 1.25; font-weight: 900;">أين تُستخدم خدمة تسليك المجاري؟</h2>
+<p style="margin: 0; color: #64748b; font-size: 16px; font-weight: 800;">توجيه واضح حسب مكان الانسداد يساعد على تحويل أسرع وفهم أدق للحالة.</p>
+
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 18px;">
+<div style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🏠 منازل وفلل</h3>
+<p style="margin: 0; color: #475569; font-weight: 800;">عند انسداد حمام أو مطبخ أو بالوعة داخل المنزل أو الفيلا.</p>
+
+</div>
+<div style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🍽️ مطاعم ومحلات</h3>
+<p style="margin: 0; color: #475569; font-weight: 800;">عند بطء تصريف أحواض المطابخ أو انسداد خطوط الصرف بسبب الدهون.</p>
+
+</div>
+<div style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🏢 بنايات وشقق</h3>
+<p style="margin: 0; color: #475569; font-weight: 800;">عند وجود بطء أو انسداد موضعي في حمام أو مطبخ أو مصرف أرضي.</p>
+
+</div>
+<div style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900;">🕳️ بالوعات ومصارف</h3>
+<p style="margin: 0; color: #475569; font-weight: 800;">عند وجود رواسب أو انسداد قريب من فتحة البالوعة أو المصرف.</p>
+
+</div>
+</div>
+</div>
+</section><!-- RELATED LINKS -->
+
+<section id="links" style="padding: 75px 0; background: linear-gradient(180deg,#f8fbff,#ffffff);">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="max-width: 920px; margin: 0 auto 30px; text-align: center;">
+<div style="display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; margin-bottom: 12px;">روابط داخلية مهمة</div>
+<h2 style="margin: 0 0 12px; color: #020617; font-size: clamp(30px,4vw,50px); line-height: 1.25; font-weight: 900;">خدمات مرتبطة بتسليك المجاري</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px;">
+
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 24px; padding: 20px; text-decoration: none; color: #0f2740; font-weight: 900; box-shadow: 0 12px 32px rgba(15,23,42,.07);" href="https://bellsystem35.com/%D8%AE%D8%AF%D9%85%D8%A9-%D8%B5%D8%B1%D9%81-%D8%B5%D8%AD%D9%8A/">🚰 الصفحة الأم لخدمات الصرف الصحي</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 24px; padding: 20px; text-decoration: none; color: #0f2740; font-weight: 900; box-shadow: 0 12px 32px rgba(15,23,42,.07);" href="https://bellsystem35.com/%d8%b4%d9%81%d8%b7-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a/">🚚 شفط المجاري في الشارقة</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 24px; padding: 20px; text-decoration: none; color: #0f2740; font-weight: 900; box-shadow: 0 12px 32px rgba(15,23,42,.07);" href="https://bellsystem35.com/%D8%AE%D8%AF%D9%85%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D8%A7%D9%84%D9%88%D8%B9%D8%A7%D8%AA/">🕳️ تنظيف بالوعات المجاري</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 24px; padding: 20px; text-decoration: none; color: #0f2740; font-weight: 900; box-shadow: 0 12px 32px rgba(15,23,42,.07);" href="https://bellsystem35.com/%d9%85%d8%b9%d8%a7%d9%84%d8%ac%d8%a9-%d8%a7%d9%84%d8%b1%d9%88%d8%a7%d8%a6%d8%ad-%d8%a7%d9%84%d9%83%d8%b1%d9%8a%d9%87%d8%a9-%d9%84%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a/">🌫️ معالجة روائح المجاري</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 24px; padding: 20px; text-decoration: none; color: #0f2740; font-weight: 900; box-shadow: 0 12px 32px rgba(15,23,42,.07);" href="https://bellsystem35.com/%d8%b5%d9%8a%d8%a7%d9%86%d8%a9-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d8%b5%d8%b1%d9%81-%d8%a7%d9%84%d8%b5%d8%ad%d9%8a/">🛠️ صيانة مجاري الصرف الصحي</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 24px; padding: 20px; text-decoration: none; color: #0f2740; font-weight: 900; box-shadow: 0 12px 32px rgba(15,23,42,.07);" href="https://bellsystem35.com/%d8%b7%d9%88%d8%a7%d8%b1%d8%a6-%d8%a7%d9%84%d8%b5%d8%b1%d9%81-%d8%a7%d9%84%d8%b5%d8%ad%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-24-%d8%b3%d8%a7%d8%b9%d8%a9/">🚨 طوارئ الصرف الصحي</a>
+
+</div>
+</div>
+</section><!-- AREAS -->
+
+<section id="areas" style="padding: 75px 0; background: #ffffff;">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="max-width: 920px; margin: 0 auto 30px; text-align: center;">
+<div style="display: inline-flex; padding: 8px 14px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; margin-bottom: 12px;">مناطق الخدمة</div>
+<h2 style="margin: 0 0 12px; color: #020617; font-size: clamp(30px,4vw,50px); line-height: 1.25; font-weight: 900;">تسليك مجاري في مناطق الشارقة</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 12px;"><a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b2/">تسليك مجاري المجاز</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%86%d9%87%d8%af%d8%a9-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري النهدة</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d8%aa%d8%b9%d8%a7%d9%88%d9%86-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري التعاون</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d8%ae%d8%a7%d9%86-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري الخان</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%85%d9%88%d9%8a%d9%84%d8%ad-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري مويلح</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%82%d8%a7%d8%b3%d9%85%d9%8a%d8%a9-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري القاسمية</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d9%82%d8%b1%d8%a7%d8%a6%d9%86-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري القرائن</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d8%b3%d9%8a%d9%88%d8%ad-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري السيوح</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d8%b1%d8%ad%d9%85%d8%a7%d9%86%d9%8a%d8%a9-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري الرحمانية</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%86%d9%88%d9%81-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك مجاري النوف</a>
+<a style="background: #fff; border: 1px solid #dbeafe; border-radius: 18px; padding: 14px; color: #0f2740; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a8%d8%a7%d9%84%d9%88%d8%b9%d8%a7%d8%aa-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9/">تسليك بالوعات المجاري</a>
+<a style="background: #ecfeff; border: 1px solid #99f6e4; border-radius: 18px; padding: 14px; color: #0f766e; font-weight: 900; text-decoration: none; box-shadow: 0 10px 26px rgba(15,23,42,.06);" href="https://bellsystem35.com/%D8%AE%D8%AF%D9%85%D8%A9-%D8%B5%D8%B1%D9%81-%D8%B5%D8%AD%D9%8A/">الصفحة الأم للصرف الصحي</a></div>
+</div>
+</section><!-- ARTICLES -->
+
+<section id="articles" style="padding: 78px 0; background: linear-gradient(180deg,#f8fbff,#ffffff);">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="max-width: 940px; margin: 0 auto 34px; text-align: center;">
+<div style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; margin-bottom: 14px;">📚 دليل تسليك المجاري</div>
+<h2 style="margin: 0 0 12px; color: #020617; font-size: clamp(30px,4vw,52px); line-height: 1.25; font-weight: 900;">مقالات تسليك مجاري في الشارقة</h2>
+<p style="margin: 0; color: #64748b; font-size: 16px; font-weight: 800; line-height: 1.9;">دليل إرشادي يساعد العميل على معرفة سبب الانسداد، الفرق بين التسليك والشفط، ومتى يحتاج تنظيف بالوعات أو صيانة صرف صحي.</p>
+
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 18px;"><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; background: #ecfeff; color: #0f766e; border: 1px solid #99f6e4; border-radius: 999px; padding: 7px 12px; font-weight: 900; font-size: 12px; margin-bottom: 12px;">أسباب الانسداد</div>
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900; line-height: 1.35;">أسباب انسداد المجاري في الشارقة وكيف تعالجها؟</h3>
+<p style="margin: 0 0 16px; color: #64748b; font-weight: 800;">شرح لأكثر أسباب الانسداد شيوعًا ومتى تحتاج إلى تسليك أو تنظيف بالوعات.</p>
+<a style="display: inline-flex; padding: 11px 15px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; text-decoration: none;" href="https://bellsystem35.com/2026/05/12/%d8%a3%d8%b3%d8%a8%d8%a7%d8%a8-%d8%a7%d9%86%d8%b3%d8%af%d8%a7%d8%af-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-%d9%88%d9%83%d9%8a%d9%81-%d8%aa/">قراءة المقال ←</a>
+
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; background: #ecfeff; color: #0f766e; border: 1px solid #99f6e4; border-radius: 999px; padding: 7px 12px; font-weight: 900; font-size: 12px; margin-bottom: 12px;">تسليك أم شفط</div>
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900; line-height: 1.35;">الفرق بين تسليك المجاري وشفط المجاري</h3>
+<p style="margin: 0 0 16px; color: #64748b; font-weight: 800;">يوضح متى تحتاج فتح انسداد ومتى تحتاج شفط مجاري أو بيارات.</p>
+<a style="display: inline-flex; padding: 11px 15px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; text-decoration: none;" href="https://bellsystem35.com/2026/05/12/%d8%a7%d9%84%d9%81%d8%b1%d9%82-%d8%a8%d9%8a%d9%86-%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%88%d8%b4%d9%81%d8%b7-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%81/">قراءة المقال ←</a>
+
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; background: #ecfeff; color: #0f766e; border: 1px solid #99f6e4; border-radius: 999px; padding: 7px 12px; font-weight: 900; font-size: 12px; margin-bottom: 12px;">المطابخ</div>
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900; line-height: 1.35;">تسليك مجاري المطابخ في الشارقة</h3>
+<p style="margin: 0 0 16px; color: #64748b; font-weight: 800;">مقال متخصص في انسداد المطابخ بسبب الدهون وبقايا الطعام.</p>
+<a style="display: inline-flex; padding: 11px 15px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; text-decoration: none;" href="https://bellsystem35.com/2026/05/12/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%85%d8%b7%d8%a7%d8%a8%d8%ae-%d9%81%d9%8a-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-%d8%a7%d9%84%d8%af%d9%87%d9%88%d9%86/">قراءة المقال ←</a>
+
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; background: #ecfeff; color: #0f766e; border: 1px solid #99f6e4; border-radius: 999px; padding: 7px 12px; font-weight: 900; font-size: 12px; margin-bottom: 12px;">الحمامات</div>
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900; line-height: 1.35;">تسليك مجاري الحمامات في الشارقة</h3>
+<p style="margin: 0 0 16px; color: #64748b; font-weight: 800;">الشعر والصابون وبطء تصريف الدش والبالوعات الأرضية.</p>
+<a style="display: inline-flex; padding: 11px 15px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; text-decoration: none;" href="https://bellsystem35.com/2026/05/12/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d8%ad%d9%85%d8%a7%d9%85%d8%a7%d8%aa-%d9%81%d9%8a-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-%d8%a7%d9%86%d8%b3%d8%af%d8%a7/">قراءة المقال ←</a>
+
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; background: #ecfeff; color: #0f766e; border: 1px solid #99f6e4; border-radius: 999px; padding: 7px 12px; font-weight: 900; font-size: 12px; margin-bottom: 12px;">الفلل</div>
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900; line-height: 1.35;">تسليك مجاري الفلل في الشارقة</h3>
+<p style="margin: 0 0 16px; color: #64748b; font-weight: 800;">مشاكل صرف الفلل والحمامات والمطابخ والبالوعات الخارجية.</p>
+<a style="display: inline-flex; padding: 11px 15px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; text-decoration: none;" href="https://bellsystem35.com/2026/05/12/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a7%d9%84%d9%81%d9%84%d9%84-%d9%81%d9%8a-%d8%a7%d9%84%d8%b4%d8%a7%d8%b1%d9%82%d8%a9-%d9%85%d8%b4%d8%a7%d9%83%d9%84-%d8%a7%d9%84%d8%b5/">قراءة المقال ←</a>
+
+</article><article style="background: #fff; border: 1px solid #dbeafe; border-radius: 28px; padding: 24px; box-shadow: 0 16px 42px rgba(15,23,42,.08);">
+<div style="display: inline-flex; background: #ecfeff; color: #0f766e; border: 1px solid #99f6e4; border-radius: 999px; padding: 7px 12px; font-weight: 900; font-size: 12px; margin-bottom: 12px;">الروائح</div>
+<h3 style="margin: 0 0 10px; color: #020617; font-size: 22px; font-weight: 900; line-height: 1.35;">روائح المجاري في المنزل</h3>
+<p style="margin: 0 0 16px; color: #64748b; font-weight: 800;">الأسباب والحلول ومتى تكون المشكلة تنظيف بالوعات أو معالجة روائح.</p>
+<a style="display: inline-flex; padding: 11px 15px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; text-decoration: none;" href="https://bellsystem35.com/2026/05/12/%d8%b1%d9%88%d8%a7%d8%a6%d8%ad-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d9%81%d9%8a-%d8%a7%d9%84%d9%85%d9%86%d8%b2%d9%84-%d8%a7%d9%84%d8%a3%d8%b3%d8%a8%d8%a7%d8%a8-%d9%88%d8%a7%d9%84%d8%ad%d9%84/">قراءة المقال ←</a>
+
+</article></div>
+</div>
+</section><!-- FAQ -->
+
+<section id="faq" style="padding: 78px 0; background: linear-gradient(180deg,#f8fbff,#ffffff);">
+<div style="width: min(1240px,94%); margin: auto;">
+<div style="max-width: 940px; margin: 0 auto 34px; text-align: center;">
+<div style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; font-weight: 900; margin-bottom: 14px;">❓ الأسئلة الشائعة</div>
+<h2 style="margin: 0 0 12px; color: #020617; font-size: clamp(30px,4vw,52px); line-height: 1.25; font-weight: 900;">أسئلة شائعة عن تسليك المجاري والعروض والتتبع</h2>
+</div>
+<div style="display: grid; gap: 12px;"><details style="background: #fff; border: 1px solid #dbeafe; border-radius: 22px; padding: 18px; box-shadow: 0 10px 26px rgba(15,23,42,.06);" open=""><summary style="cursor: pointer; color: #020617; font-size: 17px; font-weight: 900;">متى أحتاج خدمة تسليك مجاري في الشارقة؟</summary>
+<p style="margin: 12px 0 0; color: #475569; font-weight: 800;">عندما تكون المشكلة بطء تصريف أو انسدادًا موضعيًا في حمام أو مطبخ أو بالوعة، بدون طفح كبير أو امتلاء بيارة واضح.</p>
+
+</details><details style="background: #fff; border: 1px solid #dbeafe; border-radius: 22px; padding: 18px; box-shadow: 0 10px 26px rgba(15,23,42,.06);"><summary style="cursor: pointer; color: #020617; font-size: 17px; font-weight: 900;">ما الفرق بين التسليك والشفط؟</summary>
+<p style="margin: 12px 0 0; color: #475569; font-weight: 800;">التسليك للمشاكل الموضعية وبطء التصريف، أما الشفط فهو أقرب لحالات الطفح وامتلاء البيارات ورجوع المياه.</p>
+
+</details><details style="background: #fff; border: 1px solid #dbeafe; border-radius: 22px; padding: 18px; box-shadow: 0 10px 26px rgba(15,23,42,.06);"><summary style="cursor: pointer; color: #020617; font-size: 17px; font-weight: 900;">كيف أحصل على عرض تسليك المجاري 20%؟</summary>
+<p style="margin: 12px 0 0; color: #475569; font-weight: 800;">عند التواصل عبر الهاتف أو واتساب، اذكر عبارة: عرض تسليك المجاري 20%. يختلف تطبيق العرض حسب المنطقة ونوع المشكلة وحجم الخدمة.</p>
+
+</details><details style="background: #fff; border: 1px solid #dbeafe; border-radius: 22px; padding: 18px; box-shadow: 0 10px 26px rgba(15,23,42,.06);"><summary style="cursor: pointer; color: #020617; font-size: 17px; font-weight: 900;">هل يساعد الكود في تحسين جودة تتبع تحويلات Google Ads؟</summary>
+<p style="margin: 12px 0 0; color: #475569; font-weight: 800;">يساعد الكود على تقليل تكرار احتساب نفس الإجراء داخل الصفحة خلال فترة قصيرة، لكنه لا يمنع كل النقرات غير الصالحة من مصدر الإعلان نفسه.</p>
+
+</details><details style="background: #fff; border: 1px solid #dbeafe; border-radius: 22px; padding: 18px; box-shadow: 0 10px 26px rgba(15,23,42,.06);"><summary style="cursor: pointer; color: #020617; font-size: 17px; font-weight: 900;">كيف أتواصل مع BELL SYSTEM؟</summary>
+<p style="margin: 12px 0 0; color: #475569; font-weight: 800;">يمكنك الاتصال على 0528913062 أو إرسال المنطقة ونوع المشكلة عبر واتساب ليتم تحديد الخدمة المناسبة.</p>
+
+</details></div>
+</div>
+</section><!-- CONTACT -->
+
+<section id="contact" style="padding: 75px 0; background: #ffffff;">
+<div style="width: min(1240px,94%); margin: auto; display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 20px; align-items: stretch;">
+<div style="background: radial-gradient(circle at 90% 0%,rgba(20,184,166,.18),transparent 32%),linear-gradient(135deg,#020617,#0f2740); color: #fff; border-radius: 34px; padding: 32px; box-shadow: 0 28px 82px rgba(15,23,42,.20);">
+<h2 style="margin: 0 0 12px; color: #fff; font-size: clamp(30px,4vw,42px); font-weight: 900;">تواصل الآن مع BELL SYSTEM</h2>
+<p style="color: #e2e8f0; font-weight: 800;">أرسل المنطقة ونوع المشكلة ليتم تحديد الخدمة المناسبة: تسليك، شفط، تنظيف بالوعات، روائح، صيانة أو طوارئ.</p>
+
+<div style="display: grid; gap: 10px; margin-top: 18px;"><a style="background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 13px 15px; color: #fff; font-weight: 900; text-decoration: none;" href="tel:+971528913062">📞 الهاتف: 052 891 3062</a>
+<a style="background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 13px 15px; color: #fff; font-weight: 900; text-decoration: none;" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20خدمة%20تسليك%20مجاري%20في%20الشارقة.%0Aالمنطقة:%0Aنوع%20المشكلة:" target="_blank" rel="noopener">💬 واتساب مباشر</a>
+<a style="background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 13px 15px; color: #fff; font-weight: 900; text-decoration: none;" href="https://maps.app.goo.gl/gVnEnegbrcvJNBu39" target="_blank" rel="noopener">📍 فتح الموقع على Google Maps</a>
+<a style="background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 13px 15px; color: #fff; font-weight: 900; text-decoration: none;" href="https://2gis.ae/ar/sharjah/firm/70000001097609823" target="_blank" rel="noopener">🗺️ فتح النشاط على 2GIS</a></div>
+</div>
+<div style="background: #ffffff; border: 1px solid #dbeafe; border-radius: 34px; padding: 28px; box-shadow: 0 18px 48px rgba(15,23,42,.12); min-height: 420px; display: flex; flex-direction: column; justify-content: center;">
+<div style="width: 72px; height: 72px; border-radius: 24px; background: linear-gradient(135deg,#020617,#0f766e); color: #fff; display: grid; place-items: center; font-size: 34px; margin-bottom: 18px;">📍</div>
+<h3 style="margin: 0 0 12px; color: #020617; font-size: 30px; font-weight: 900; line-height: 1.25;">موقع وخدمات BELL SYSTEM في الشارقة</h3>
+<p style="margin: 0 0 20px; color: #64748b; font-weight: 800; line-height: 1.9;">نخدم مناطق الشارقة لخدمات تسليك المجاري، شفط المجاري، تنظيف البالوعات، صيانة الصرف الصحي ومعالجة الروائح. استخدم روابط الخرائط الرسمية للوصول أو التحقق من بيانات النشاط.</p>
+
+<div style="display: grid; gap: 12px;"><a style="background: #ecfeff; border: 1px solid #99f6e4; color: #0f766e; border-radius: 18px; padding: 14px 16px; text-decoration: none; font-weight: 900;" href="https://maps.app.goo.gl/gVnEnegbrcvJNBu39" target="_blank" rel="noopener">
+📍 فتح الموقع على Google Maps
+</a><a style="background: #f8fafc; border: 1px solid #e2e8f0; color: #0f2740; border-radius: 18px; padding: 14px 16px; text-decoration: none; font-weight: 900;" href="https://2gis.ae/ar/sharjah/firm/70000001097609823" target="_blank" rel="noopener">
+🗺️ فتح النشاط على 2GIS
+</a>
+
+<a style="background: #16a34a; color: #fff; border-radius: 18px; padding: 14px 16px; text-decoration: none; font-weight: 900;" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20إرسال%20الموقع%20لخدمة%20تسليك%20مجاري%20في%20الشارقة" target="_blank" rel="noopener">
+💬 إرسال موقعي عبر واتساب
+</a>
+
+</div>
+</div>
+</div>
+</section><!-- FOOTER -->
+
+<footer style="background: linear-gradient(90deg,#020617,#0f766e,#020617); color: #fff; padding: 26px 0; text-align: center; font-weight: 800;">
+<div style="width: min(1240px,94%); margin: auto;"><strong style="color: #fde68a;">BELL SYSTEM</strong> في الشارقة • تسليك مجاري • شفط مجاري • تنظيف بالوعات • معالجة روائح • صيانة صرف صحي • واتساب: 052 891 3062</div>
+</footer><!-- FIXED DESKTOP BUTTONS -->
+<div style="position: fixed; left: 18px; bottom: 92px; z-index: 99999; display: grid; gap: 10px;"><a style="width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 24px; background: linear-gradient(135deg,#b91c1c,#ef4444); box-shadow: 0 18px 44px rgba(15,23,42,.25); border: 2px solid rgba(255,255,255,.9); text-decoration: none;" href="tel:+971528913062" aria-label="اتصال مباشر">📞</a>
+<a style="width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 24px; background: linear-gradient(135deg,#16a34a,#25d366); box-shadow: 0 18px 44px rgba(15,23,42,.25); border: 2px solid rgba(255,255,255,.9); text-decoration: none;" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20خدمة%20تسليك%20مجاري%20في%20الشارقة" target="_blank" rel="noopener" aria-label="واتساب مباشر">💬</a>
+<a style="width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 24px; background: linear-gradient(135deg,#0f766e,#14b8a6); box-shadow: 0 18px 44px rgba(15,23,42,.25); border: 2px solid rgba(255,255,255,.9); text-decoration: none;" href="https://maps.app.goo.gl/gVnEnegbrcvJNBu39" target="_blank" rel="noopener" aria-label="خريطة">📍</a></div>
+<!-- FIXED MOBILE BAR -->
+<div style="position: fixed; right: 0; left: 0; bottom: 0; z-index: 999999; display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 9px; background: rgba(2,6,23,.96); box-shadow: 0 -14px 40px rgba(15,23,42,.36);"><a style="color: #fff; text-align: center; padding: 12px 8px; border-radius: 14px; font-weight: 900; font-size: 13px; background: #b91c1c; text-decoration: none;" href="tel:+971528913062">📞 اتصال</a>
+<a style="color: #fff; text-align: center; padding: 12px 8px; border-radius: 14px; font-weight: 900; font-size: 13px; background: #16a34a; text-decoration: none;" href="https://wa.me/971528913062?text=السلام%20عليكم،%20أريد%20خدمة%20تسليك%20مجاري%20في%20الشارقة" target="_blank" rel="noopener">💬 واتساب</a>
+<a style="color: #111827; text-align: center; padding: 12px 8px; border-radius: 14px; font-weight: 900; font-size: 13px; background: #facc15; text-decoration: none;" href="#offers">🔥 العرض</a></div>
+<!-- SCHEMA -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://bellsystem35.com/#organization",
+        "name":"BELL SYSTEM",
+        "url":"https://bellsystem35.com/",
+        "telephone":"+971528913062",
+        "email":"info@bellsystem35.com",
+        "sameAs":[
+          "https://maps.app.goo.gl/gVnEnegbrcvJNBu39",
+          "https://2gis.ae/ar/sharjah/firm/70000001097609823"
+        ]
+      },
+      {
+        "@type":"LocalBusiness",
+        "@id":"https://bellsystem35.com/#localbusiness",
+        "name":"BELL SYSTEM",
+        "url":"https://bellsystem35.com/",
+        "telephone":"+971528913062",
+        "priceRange":"$$",
+        "address":{
+          "@type":"PostalAddress",
+          "addressLocality":"Sharjah",
+          "addressRegion":"Sharjah",
+          "addressCountry":"AE"
+        },
+        "areaServed":{
+          "@type":"AdministrativeArea",
+          "name":"Sharjah"
+        },
+        "description":"BELL SYSTEM تقدم خدمات تسليك مجاري في الشارقة، فتح انسداد الحمامات والمطابخ، تنظيف البالوعات، شفط المجاري، معالجة الروائح وصيانة الصرف الصحي."
+      },
+      {
+        "@type":"Service",
+        "@id":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/#service",
+        "name":"تسليك مجاري في الشارقة",
+        "serviceType":"Drain Cleaning Service",
+        "provider":{"@id":"https://bellsystem35.com/#localbusiness"},
+        "areaServed":{"@type":"AdministrativeArea","name":"Sharjah"},
+        "description":"خدمة تسليك مجاري في الشارقة لفتح انسداد الحمامات والمطابخ والبالوعات ومعالجة بطء التصريف."
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/#webpage",
+        "url":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/",
+        "name":"تسليك مجاري في الشارقة | فتح انسداد المجاري والمطابخ والحمامات | BELL SYSTEM",
+        "description":"صفحة شاملة لخدمة تسليك مجاري في الشارقة من BELL SYSTEM تشمل فتح انسداد الحمامات والمطابخ والبالوعات وبطء التصريف، مع عروض وخصومات وتتبع تحويلات Google Ads.",
+        "inLanguage":"ar-AE",
+        "about":{"@id":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/#service"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/#breadcrumb",
+        "itemListElement":[
+          {
+            "@type":"ListItem",
+            "position":1,
+            "name":"الرئيسية",
+            "item":"https://bellsystem35.com/"
+          },
+          {
+            "@type":"ListItem",
+            "position":2,
+            "name":"خدمات الصرف الصحي",
+            "item":"https://bellsystem35.com/%D8%AE%D8%AF%D9%85%D8%A9-%D8%B5%D8%B1%D9%81-%D8%B5%D8%AD%D9%8A/"
+          },
+          {
+            "@type":"ListItem",
+            "position":3,
+            "name":"تسليك مجاري في الشارقة",
+            "item":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/"
+          }
+        ]
+      },
+      {
+        "@type":"OfferCatalog",
+        "@id":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/#offers",
+        "name":"عروض خدمات الصرف الصحي من BELL SYSTEM",
+        "url":"https://bellsystem35.com/%d8%a7%d9%84%d8%b9%d8%b1%d9%88%d8%b6-%d9%88%d8%a7%d9%84%d8%aa%d8%ae%d9%81%d9%8a%d8%b6%d8%a7%d8%aa/",
+        "itemListElement":[
+          {
+            "@type":"Offer",
+            "name":"خصم 20% على تسليك المجاري في الشارقة",
+            "description":"عرض على خدمة تسليك المجاري وفتح انسداد الحمامات والمطابخ والبالوعات حسب الحالة والمنطقة.",
+            "url":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/",
+            "seller":{"@id":"https://bellsystem35.com/#localbusiness"}
+          },
+          {
+            "@type":"Offer",
+            "name":"خصم 25% على شفط المجاري في الشارقة",
+            "description":"عرض على خدمة شفط البيارات وحالات الطفح ورجوع المياه حسب الحالة والمنطقة.",
+            "url":"https://bellsystem35.com/%d8%b4%d9%81%d8%b7-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a/",
+            "seller":{"@id":"https://bellsystem35.com/#localbusiness"}
+          },
+          {
+            "@type":"Offer",
+            "name":"خصم 15% على تنظيف البالوعات في الشارقة",
+            "description":"عرض على تنظيف المصارف والبالوعات وبطء التصريف حسب الحالة والمنطقة.",
+            "url":"https://bellsystem35.com/%D8%AE%D8%AF%D9%85%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D8%A8%D8%A7%D9%84%D9%88%D8%B9%D8%A7%D8%AA/",
+            "seller":{"@id":"https://bellsystem35.com/#localbusiness"}
+          }
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://bellsystem35.com/%d8%aa%d8%b3%d9%84%d9%8a%d9%83-%d8%a7%d9%84%d9%85%d8%ac%d8%a7%d8%b1%d9%8a-%d8%a8%d8%a7%d9%84%d8%b6%d8%ba%d8%b7/#faq",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"متى أحتاج خدمة تسليك مجاري في الشارقة؟",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"تحتاج خدمة تسليك المجاري عندما تكون المشكلة بطء تصريف أو انسدادًا موضعيًا في حمام أو مطبخ أو بالوعة، بدون طفح كبير أو امتلاء بيارة واضح."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"ما الفرق بين التسليك والشفط؟",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"التسليك للمشاكل الموضعية وبطء التصريف، أما الشفط فهو أقرب لحالات الطفح وامتلاء البيارات ورجوع المياه."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"كيف أحصل على عرض تسليك المجاري 20%؟",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"عند التواصل عبر الهاتف أو واتساب، اذكر عبارة عرض تسليك المجاري 20%. يختلف تطبيق العرض حسب المنطقة ونوع المشكلة وحجم الخدمة."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"هل يساعد الكود في تحسين جودة تتبع تحويلات Google Ads؟",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"يساعد الكود على تقليل تكرار احتساب نفس الإجراء داخل الصفحة خلال فترة قصيرة لتحسين دقة قياس الاتصال والواتساب، لكنه لا يمنع كل النقرات غير الصالحة من مصدر الإعلان نفسه."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"كيف أتواصل مع BELL SYSTEM؟",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"يمكن التواصل عبر الاتصال على 0528913062 أو عبر واتساب مع إرسال المنطقة ونوع المشكلة."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</section>
